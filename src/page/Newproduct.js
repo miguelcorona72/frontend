@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-hot-toast'
 import {MdCloudUpload} from "react-icons/md"
 import { ImagetoBase64 } from '../utility/ImagetoBase64'
 
@@ -35,11 +36,29 @@ const Newproduct = () => {
 
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault()
-
     console.log(data)
-  }
+
+    const {name,image,category,price} = data
+
+    if(name && image && category && price){
+      const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/uploadProduct`,{
+        method : "POST",
+        headers : {
+          "content-type" : "application/json"
+        },
+        body : JSON.stringify(data)
+      })
+  
+    const fetchRes =  await fetchData.json()
+  
+      console.log(fetchRes)
+
+    }
+    else{
+      toast("Capture los campos requeridos")
+    }
 
   return (
     <div className="p-4 ">
@@ -49,11 +68,13 @@ const Newproduct = () => {
 
           <label htmlFor='category'>Categoria</label>
           <select className='bg-yellow-100 text-black p-1 my-1' id='category' name='category' onChange={handleOnChange}>
-            <option>Señuelos</option>
-            <option>Cañas</option>
-            <option>Carretes</option>
-            <option>Anzuelos    </option>
-            <option>Linea</option>            
+            <option value={"other"}>select category</option>
+            <option value={"senuelos"}>Señuelos</option>
+            <option value={"canas"}>Cañas</option>
+            <option value={"carretes"}>Carretes</option>
+            <option value={"anzuelos"}>Anzuelos</option>
+            <option value={"salvavidas"}>Chaleco Salvavida</option>            
+            <option value={"linea"}>Línea</option>            
           </select>
 
           <label htmlFor='image'>Imagen
