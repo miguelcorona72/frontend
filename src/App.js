@@ -3,9 +3,17 @@ import './App.css';
 import Header from './component/Header';
 import { Outlet } from 'react-router-dom';
 import toast, { Toaster } from "react-hot-toast";
+import { useEffect } from 'react';
 
 
 function App() {
+  useEffect(()=>{
+    (async()=>{
+      const res = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/product`)
+      const resData = await res.json()
+     
+    })()
+  },[])
   return (
     <>
       <Toaster />

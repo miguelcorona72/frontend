@@ -5,12 +5,13 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector} from "react-redux";
 import { logoutRedux } from '../redux/userSlice';
+import { toast } from 'react-hot-toast';
 
 const Header = () => {
     const [showMenu,setShowMenu] = useState(false);
     const userData = useSelector((state) => state.user);
 
-   // console.log(userData)
+    console.log(userData.email)
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -22,7 +23,10 @@ const Header = () => {
     };
     const handleLogout = ()=>{
         dispatch(logoutRedux())
+        toast("Logout exitoso")
     }
+
+    console.log(process.env.REACT_APP_ADMIN_EMAIL)
   return (
     <header className='fixed shadow-md w-full h-16 px-2 md:px-4 z-50 bg-red-600'>
         {/* desktop */}
@@ -57,9 +61,12 @@ const Header = () => {
                     </div>
                     {showMenu && (
                         <div className="absolute right-2 bg-white text-black py-2 px-2 shadow drop-shadow-md flex flex-col">
-                            <Link to={"newproduct"} className="whitespace-nowrap cursor-pointer">Producto Nuevo</Link>
+                                {
+                                    userData.email === process.env.REACT_APP_ADMIN_EMAIL && <Link to={"newproduct"} className="whitespace-nowrap cursor-pointer">Producto Nuevo</Link>
+                                }
+                            
                             {
-                                userData.image ? <p className="cursor-pointer" onClick={handleLogout}>Logout</p> : <Link to={"login"} className="whitespace-nowrap cursor-pointer">Login</Link>
+                                userData.image ? <p className="cursor-pointer" onClick={handleLogout}>Logout ({userData.firstName})</p> : <Link to={"login"} className="whitespace-nowrap cursor-pointer">Login</Link>
                             } 
                             {/*<Link to={"login"} className="whitespace-nowrap cursor-pointer">Login</Link>*/}
                             

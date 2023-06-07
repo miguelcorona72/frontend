@@ -51,53 +51,67 @@ const Newproduct = () => {
         body : JSON.stringify(data)
       })
   
-    const fetchRes =  await fetchData.json()
+      const fetchRes =  await fetchData.json()
   
       console.log(fetchRes)
+      toast(fetchRes.message)
+
+      setData(()=>{
+        return{
+          name : "",
+          category : "",
+          image : "",
+          price : "",
+          description : ""
+        }
+      })
 
     }
     else{
       toast("Capture los campos requeridos")
     }
 
-  return (
-    <div className="p-4 ">
-        <form className='m-auto w-full max-w-md shadow flex flex-col p-3 bg-indigo-800 text-white rounded' onSubmit={handleSubmit}>
-          <label htmlFor='name'>Nombre</label>
-          <input type={"text"} name="name" className='bg-yellow-100 text-black p-1 my-1' onChange={handleOnChange}/>
+ 
+}
 
-          <label htmlFor='category'>Categoria</label>
-          <select className='bg-yellow-100 text-black p-1 my-1' id='category' name='category' onChange={handleOnChange}>
-            <option value={"other"}>select category</option>
-            <option value={"senuelos"}>Señuelos</option>
-            <option value={"canas"}>Cañas</option>
-            <option value={"carretes"}>Carretes</option>
-            <option value={"anzuelos"}>Anzuelos</option>
-            <option value={"salvavidas"}>Chaleco Salvavida</option>            
-            <option value={"linea"}>Línea</option>            
-          </select>
+return (
+  <div className="p-4 ">
+      <form className='m-auto w-full max-w-md shadow flex flex-col p-3 bg-indigo-800 text-white rounded' onSubmit={handleSubmit}>
+        <label htmlFor='name'>Nombre</label>
+        <input type={"text"} name="name" className='bg-yellow-100 text-black p-1 my-1' onChange={handleOnChange} value={data.name}/>
 
-          <label htmlFor='image'>Imagen
-          <div className='h-40 w-full bg-yellow-100 text-black rounded flex items-center justify-center'>
-            {
-              data.image ? <img src={data.image} className="h-full" /> :<span className='text-7xl'><MdCloudUpload/></span>
-            }
-            
-            
-            <input type={"file"} id="image" onChange={uploadImage} className="hidden"/>      
-          </div> 
-          </label>
+        <label htmlFor='category'>Categoria</label>
+        <select className='bg-yellow-100 text-black p-1 my-1' id='category' name='category' onChange={handleOnChange} value={data.category}>
+          <option value={"other"}>select category</option>
+          <option value={"senuelos"}>Señuelos</option>
+          <option value={"canas"}>Cañas</option>
+          <option value={"carretes"}>Carretes</option>
+          <option value={"anzuelos"}>Anzuelos</option>
+          <option value={"salvavidas"}>Chaleco Salvavida</option>            
+          <option value={"linea"}>Línea</option>            
+        </select>
 
-          <label htmlFor='price' className='my-1'>Precio</label>
-          <input type={"text"} className='bg-yellow-100 text-black p-1 my-1' name='price' onChange={handleOnChange}/>
+        <label htmlFor='image'>Imagen
+        <div className='h-40 w-full bg-yellow-100 text-black rounded flex items-center justify-center'>
+          {
+            data.image ? <img src={data.image} className="h-full" /> :<span className='text-7xl'><MdCloudUpload/></span>
+          }
+          
+          
+          <input type={"file"} id="image" onChange={uploadImage} className="hidden"/>      
+        </div> 
+        </label>
 
-          <label htmlFor='description'>Descripción</label>
-          <textarea rows={2} className='bg-yellow-100 text-black p-1 my-1 resize-none' name='description' onChange={handleOnChange}></textarea>
-        
-          <button className='bg-gray-900 hover:bg-red-600 text-white text-lg font-medium drop-shadow rounded'>Guardar</button>
-        </form>  
-    </div>
-  )
+        <label htmlFor='price' className='my-1'>Precio</label>
+        <input type={"text"} className='bg-yellow-100 text-black p-1 my-1' name='price' onChange={handleOnChange} value={data.price}/>
+
+        <label htmlFor='description'>Descripción</label>
+        <textarea rows={2} value={data.description} className='bg-yellow-100 text-black p-1 my-1 resize-none' name='description' onChange={handleOnChange}></textarea>
+      
+        <button className='bg-gray-900 hover:bg-red-600 text-white text-lg font-medium drop-shadow rounded'>Guardar</button>
+      </form>  
+  </div>
+)
 }
 
 export default Newproduct
