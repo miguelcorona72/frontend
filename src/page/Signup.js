@@ -107,7 +107,7 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
             type={"text"}
             id="firstName"
             name="firstName"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-600"
+            className="mt-1 mb-2 w-full bg-slate-300 px-2 py-1 rounded focus-within:outline-blue-600"
             value={data.firstName}
             onChange={handleOnChange}
           />
@@ -117,7 +117,7 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
             type={"text"}
             id="lastName"
             name="lastName"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-600"
+            className="mt-1 mb-2 w-full bg-slate-300 px-2 py-1 rounded focus-within:outline-blue-600"
             value={data.lastName}
             onChange={handleOnChange}
           />
@@ -127,7 +127,7 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
             type={"text"}
             id="maidenName"
             name="maidenName"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-600"
+            className="mt-1 mb-2 w-full bg-slate-300 px-2 py-1 rounded focus-within:outline-blue-600"
             value={data.maidenName}
             onChange={handleOnChange}
           />
@@ -137,18 +137,18 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
             type={"email"}
             id="email"
             name="email"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-600"
+            className="mt-1 mb-2 w-full bg-slate-300 px-2 py-1 rounded focus-within:outline-blue-600"
             value={data.email}
             onChange={handleOnChange}
           />
 
           <label htmlFor="password">Contraseña</label>
-          <div className="flex px-2 py-1 bg-slate-200 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-600">
+          <div className="flex px-2 py-1 bg-slate-300 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-600">
             <input
               type={showPassword ? "text" : "password"}
               id="password"
               name="password"
-              className=" w-full bg-slate-200 border-none outline-none"
+              className=" w-full bg-slate-300 border-none outline-none"
               value={data.password}
               onChange={handleOnChange}
             />
@@ -161,12 +161,12 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
           </div>
 
           <label htmlFor="confirmpassword">Confirmar Contraseña</label>
-          <div className="flex px-2 py-1 bg-slate-200 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-600">
+          <div className="flex px-2 py-1 bg-slate-300 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-600">
             <input
               type={showConfirmPassword ? "text" : "password"}
               id="confirmpassword"
               name="confirmPassword"
-              className=" w-full bg-slate-200 border-none outline-none"
+              className=" w-full bg-slate-300 border-none outline-none"
               value={data.confirmPassword}
               onChange={handleOnChange}
             />
@@ -178,7 +178,7 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
             </span>
           </div>
 
-          <button className="w-full max-w-[150px] m-auto bg-blue-400 hover:bg-blue-600 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+          <button className="w-full max-w-[150px] m-auto bg-yellow-500 text-blue-800 hover:bg-blue-800 hover:text-yellow-300 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full mt-4">
             Registro
           </button>
         </form>
