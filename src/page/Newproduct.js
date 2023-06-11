@@ -76,23 +76,23 @@ const Newproduct = () => {
 
 return (
   <div className="p-4 ">
-      <form className='m-auto w-full max-w-md shadow flex flex-col p-3 bg-indigo-800 text-white rounded' onSubmit={handleSubmit}>
+      <form className='m-auto w-full max-w-md shadow flex flex-col p-3 bg-white text-black rounded' onSubmit={handleSubmit}>
         <label htmlFor='name'>Nombre</label>
-        <input type={"text"} name="name" className='bg-yellow-100 text-black p-1 my-1' onChange={handleOnChange} value={data.name}/>
+        <input type={"text"} name="name" className='bg-slate-300 text-black p-1 my-1' onChange={handleOnChange} value={data.name}/>
 
         <label htmlFor='category'>Categoria</label>
-        <select className='bg-yellow-100 text-black p-1 my-1' id='category' name='category' onChange={handleOnChange} value={data.category}>
+        <select className='bg-slate-300 text-black p-1 my-1' id='category' name='category' onChange={handleOnChange} value={data.category}>
           <option value={"other"}>select category</option>
           <option value={"senuelos"}>Señuelos</option>
           <option value={"canas"}>Cañas</option>
           <option value={"carretes"}>Carretes</option>
           <option value={"anzuelos"}>Anzuelos</option>
-          <option value={"salvavidas"}>Chaleco Salvavida</option>            
+          <option value={"salvavidas"}>Chaleco Salvavidas</option>            
           <option value={"linea"}>Línea</option>            
         </select>
 
         <label htmlFor='image'>Imagen
-        <div className='h-40 w-full bg-yellow-100 text-black rounded flex items-center justify-center'>
+        <div className='h-40 w-full bg-slate-300 text-black rounded flex items-center justify-center'>
           {
             data.image ? <img src={data.image} className="h-full" /> :<span className='text-7xl'><MdCloudUpload/></span>
           }
@@ -103,12 +103,12 @@ return (
         </label>
 
         <label htmlFor='price' className='my-1'>Precio</label>
-        <input type={"text"} className='bg-yellow-100 text-black p-1 my-1' name='price' onChange={handleOnChange} value={data.price}/>
+        <input type={"text"} className='bg-slate-300 text-black p-1 my-1' name='price' onChange={handleOnChange} value={data.price}/>
 
         <label htmlFor='description'>Descripción</label>
-        <textarea rows={2} value={data.description} className='bg-yellow-100 text-black p-1 my-1 resize-none' name='description' onChange={handleOnChange}></textarea>
+        <textarea rows={2} value={data.description} className='bg-slate-300 text-black p-1 my-1 resize-none' name='description' onChange={handleOnChange}></textarea>
       
-        <button className='bg-gray-900 hover:bg-red-600 text-white text-lg font-medium drop-shadow rounded'>Guardar</button>
+        <button className='bg-yellow-500 text-blue-900 hover:bg-blue-800 hover:text-yellow-300 text-lg font-medium drop-shadow rounded'>Guardar</button>
       </form>  
   </div>
 )

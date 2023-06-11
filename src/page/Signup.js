@@ -19,7 +19,7 @@ function Signup() {
     image: "",
   });
 
-  console.log(data)
+  //console.log(data)
   const handleShowPassword = () => {
     setShowPassword((preve) => !preve);
   };
@@ -39,7 +39,7 @@ function Signup() {
 
   const handleUploadProfileImage = async(e)=>{
     const data = await ImagetoBase64(e.target.files[0])
-    console.log(data)
+   // console.log(data)
 
     setData((preve)=>{
       return{
@@ -64,10 +64,10 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
                 },
                 body : JSON.stringify(data)
               })
-              console.log(fetchData)              
+          //    console.log(fetchData)              
 
               const dataRes = await fetchData.json()
-              console.log(dataRes)
+         //     console.log(dataRes)
            //  alert("Exitoso");
             // navigate("/login");
 
@@ -178,13 +178,13 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
             </span>
           </div>
 
-          <button className="w-full max-w-[150px] m-auto bg-yellow-500 text-blue-800 hover:bg-blue-800 hover:text-yellow-300 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+          <button className="w-full max-w-[150px] m-auto bg-yellow-500 text-blue-900 hover:bg-blue-800 hover:text-yellow-300 cursor-pointer text-xl font-medium text-center py-1 rounded-full mt-4">
             Registro
           </button>
         </form>
         <p className="text-left text-sm mt-2">
           Ya tengo cuenta ?{" "}
-          <Link to={"/login"} className="text-red-500 underline">
+          <Link to={"/login"} className="text-red-600 font-bold underline">
             Login aquí
           </Link>
         </p>

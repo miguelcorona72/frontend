@@ -107,13 +107,13 @@ const Login = () => {
           </span>
         </div>
         
-        <button className="w-full max-w-[150px] m-auto bg-yellow-500 text-blue-800 hover:bg-blue-800 hover:text-yellow-300 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+        <button className="w-full max-w-[150px] m-auto bg-yellow-500 text-blue-900 hover:bg-blue-800 hover:text-yellow-300 cursor-pointer text-xl font-medium text-center py-1 rounded-full mt-4">
           Login
         </button>
       </form>
       <p className="text-left text-sm mt-2">
         No tengo cuenta ?{" "}
-        <Link to={"/signup"} className="text-red-500 underline">
+        <Link to={"/signup"} className="text-red-600 font-bold underline">
           Registrese aquí
         </Link>
       </p>
