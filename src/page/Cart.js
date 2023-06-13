@@ -61,9 +61,9 @@ const Cart = () => {
          
 
         {productCartItem[0] ?
-        <div className="my-4 flex flex-col gap-3">
+        <div className="my-4 flex flex-col gap-5">
           {/* display cart items  */}
-          <div className="w-full max-w-3xl ">
+          <div className="w-full max-w-3xl m-auto">
             {productCartItem.map((el) => {
               return (
                 <CartProduct
@@ -81,19 +81,19 @@ const Cart = () => {
           </div>
 
           {/* total cart item  */}
-          <div className="w-full max-w-md  ml-auto">
-            <h2 className="bg-yellow-600 text-white p-2 text-lg">Resumen</h2>
+          <div className="w-full max-w-md  m-auto">
+            <h2 className="bg-black text-white p-2 text-lg text-center">Resumen</h2>
             <div className="flex w-full py-2 text-lg border-b">
-              <p>Total de Artículos:</p>
-              <p className="ml-auto w-32 font-bold">{totalQty}</p>
+              <p className="pl-2">Total de Artículos:</p>
+              <p className="pl-8 ml-auto w-32 font-bold">{totalQty}</p>
             </div>
             <div className="flex w-full py-2 text-lg border-b">
-              <p>Precio Total:</p>
+              <p className="pl-2">Precio Total:</p>
               <p className="ml-auto w-32 font-bold">
                 <span className="text-red-600">$</span> {totalPrice}
               </p>
             </div>
-            <button className="bg-red-600 w-full text-lg font-bold py-2 text-white" onClick={handlePayment}>
+            <button className="bg-yellow-500 text-blue-900 hover:bg-blue-800 hover:text-yellow-300 cursor-pointer w-full text-lg font-bold py-2 rounded-md" onClick={handlePayment}>
               Total a Pagar
             </button>
           </div>
